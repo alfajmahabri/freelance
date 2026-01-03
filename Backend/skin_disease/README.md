@@ -1,0 +1,212 @@
+# 🧠 Skin Disease Classification
+
+An **AI/ML-based Skin Disease Classification system** that predicts different skin diseases from images using **Deep Learning (CNN)**.  
+This project aims to assist in **early detection of skin diseases** and act as a **support tool** for healthcare applications.
+
+---
+
+## 🚀 Project Overview
+
+Skin diseases affect millions of people worldwide, and early diagnosis is critical.  
+This project uses **Convolutional Neural Networks (CNNs)** and **transfer learning** to classify skin disease images into multiple disease categories.
+
+The system:
+- Takes a **skin image** as input
+- Preprocesses and normalizes the image
+- Uses a trained deep learning model to **predict the disease**
+- Returns the **predicted class with confidence score**
+
+---
+
+## 🎯 Key Features
+
+- 🖼️ Image-based skin disease detection  
+- 🧠 Deep Learning with **EfficientNet / CNN**
+- 📊 Multi-class classification
+- 🔁 Retraining & fine-tuning supported
+- ⚡ GPU-accelerated training (Colab / Kaggle)
+- 💾 Safe model & dataset storage using Google Drive
+- 🌐 API-ready for backend integration (Django / FastAPI)
+
+---
+
+## 🔗 Frontend Repository
+
+👉 **React Native Frontend (Mobile App):**  
+🔗 https://github.com/Onkar2104/skin_disease_frontend
+
+The frontend communicates with this backend via REST APIs.
+
+---
+
+## 🛠️ Tech Stack
+
+### 🔹 Machine Learning / AI
+- Python
+- TensorFlow / Keras
+- NumPy
+- OpenCV
+- Matplotlib
+- Scikit-learn
+
+### 🔹 Training Platforms
+- Google Colab (CPU / T4 GPU)
+
+### 🔹 Deployment (Planned)
+- Django REST Framework
+- React Native frontend
+- AWS / EC2
+
+---
+
+## 📂 Dataset and Model Information
+
+The project uses **multiple Kaggle datasets** merged and cleaned carefully.
+
+### Datasets Used:
+- HAM10000 – Skin Cancer MNIST
+- ISIC 2019 Skin Lesion Dataset
+
+### Dataset Processing:
+- Removed corrupted images
+- Removed duplicates
+- Unified class names across datasets
+- Balanced classes where possible
+- Split into **Train / Validation / Test**
+
+### Model Files
+Trained model files (`.keras`, `.h5`) are ignored via `.gitignore` and stored externally.
+
+---
+
+## 📦 Project Structure
+
+```
+SKIN_DISEASE/
+│
+├── nootbooks/                    #colab notebooks that are used to train the model
+|
+├── sample_images/                # Sample images for testing predictions
+│
+├── skin_disease/                 # Django project root
+│   │
+│   ├── api/                      # API app for ML inference
+│   │   ├── __pycache__/
+│   │   ├── migrations/
+│   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── ml_state.py           # Model loading & global state
+│   │   ├── ml_utils.py           # Image preprocessing & prediction logic
+│   │   ├── models.py
+│   │   ├── tests.py
+│   │   ├── urls.py               # API routes
+│   │   └── views.py              # Prediction API views
+│   │
+│   ├── ml_models/                # Trained ML models (.keras)
+│   │
+│   ├── skin_disease/             # Django project settings
+│   │   ├── __pycache__/
+│   │   ├── __init__.py
+│   │   ├── asgi.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   │
+│   ├── db.sqlite3                # SQLite database
+│   ├── manage.py                 # Django management script
+│   └── requirements.txt          # Python dependencies
+│
+├── venv/                         # Virtual environment (not committed)
+└── .gitignore                    # Git ignored files
+
+```
+
+---
+
+## 🔮 Future Enhancements
+
+- 🔍 Increase accuracy & confidence
+- 🧬 Add more disease classes
+- 🌐 Deploy as REST API
+- 📱 Mobile app integration
+- 🧑‍⚕️ Doctor-assisted decision support
+- 📊 Explainable AI (Grad-CAM)
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow the steps below to run the backend locally.
+
+---
+
+### ✅ Prerequisites
+
+- Python 3.9+
+- pip
+- Git
+
+1. Check versions:
+```bash
+python --version
+pip --version
+```
+
+2. Clone the repository:
+```bash
+git clone https://github.com/Onkar2104/skin_disease
+```
+
+3. Navigate to the project folder:
+
+```bash
+cd skin_disease
+```
+
+4. Set up a virtual environment (optional but recommended):
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate  
+```
+
+5. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+6. Apply migrations:
+```bash
+python manage.py migrate
+```
+
+7. Create a superuser to access the admin panel:
+```bash
+python manage.py createsuperuser
+```
+
+8. Run the development server:
+```bash
+python manage.py runserver 0.0.0.0:8000
+```
+
+9. Access the app in your browser at:
+```bash
+http://127.0.0.1:8000
+```
+
+---
+
+
+## ⚠️ Disclaimer
+
+It **does not replace professional medical diagnosis**. Always consult a certified dermatologist.
+
+---
+
+## 👨‍💻 Author
+
+[Onkar Ijare](https://github.com/Onkar2104), [Shivangi Gupta](https://github.com/shivangi-guptaa), [Akansha](https://github.com/akkkiee), [Radhika Sharma](https://github.com/Radhikasharma-debug), [Krishna Shrivastav](https://github.com/7TB-KRISHNA) 
+
+---
