@@ -1,30 +1,17 @@
-CLASS_NAMES = ['ACE', 'AKBCC', 'ATD', 'BD', 'CIB', 'ECZ', 'EXD', 'ALOH', 'HPV', 'PD', 'LUT', 'MNV', 'NF', 'PID', 'PLP', 'SLB', 'SKB', 'SD', 'TRF', 'UH', 'VT', 'VC', 'WMV']
+CLASS_NAMES = ['ECZ', 'WMV', 'MEL', 'ATD', 'BCC', 'NV', 'BKL', 'PLP', 'SKB', 'TRF']
 
-# User-friendly full names for the 23 classes
+# User-friendly full names for the 10 classes
 CLASS_FULL_FORMS = {
-    'ACE': 'Acne and Rosacea',
-    'AKBCC': 'Actinic Keratosis, Basal Cell Carcinoma & other malignant lesions',
-    'ATD': 'Atopic Dermatitis',
-    'BD': 'Bullous Disease',
-    'CIB': 'Cellulitis, Impetigo & other Bacterial infections',
     'ECZ': 'Eczema',
-    'EXD': 'Exanthems & Drug eruptions',
-    'ALOH': 'Hair loss, Alopecia & other hair diseases',
-    'HPV': 'Herpes, HPV & other STDs',
-    'PD': 'Light diseases & Disorders of Pigmentation',
-    'LUT': 'Lupus & other Connective Tissue Diseases',
-    'MNV': 'Melanoma, Skin cancer, Nevi & Moles',
-    'NF': 'Nail fungus & other Nail diseases',
-    'PID': 'Poison Ivy & other Contact Dermatitis',
-    'PLP': 'Psoriasis, Lichen Planus & related diseases',
-    'SLB': 'Scabies, Lyme disease & other Infestations and Bites',
-    'SKB': 'Seborrheic Keratoses & other Benign Tumors',
-    'SD': 'Systemic Disease affecting Skin',
-    'TRF': 'Tinea, Ringworm, Candidiasis & other Fungal infections',
-    'UH': 'Urticaria / Hives',
-    'VT': 'Vascular Tumors',
-    'VC': 'Vasculitis',
-    'WMV': 'Warts, Molluscum & other Viral infections',
+    'WMV': 'Warts Molluscum and other Viral Infections',
+    'MEL': 'Melanoma',
+    'ATD': 'Atopic Dermatitis',
+    'BCC': 'Basal Cell Carcinoma (BCC)',
+    'NV': 'Melanocytic Nevi (NV)',
+    'BKL': 'Benign Keratosis-like Lesions (BKL)',
+    'PLP': 'Psoriasis, Lichen Planus and related diseases',
+    'SKB': 'Seborrheic Keratoses and other Benign Tumors',
+    'TRF': 'Tinea, Ringworm, Candidiasis and other Fungal Infections',
 }
 
 
@@ -33,21 +20,26 @@ from io import BytesIO
 from PIL import Image
 
 try:
-    from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
     from tensorflow.keras.preprocessing.image import load_img, img_to_array
 except Exception:
-    from keras.applications.mobilenet_v2 import preprocess_input
     from keras.preprocessing.image import load_img, img_to_array
 
 IMAGE_SIZE = (224, 224)
 
 def preprocess_image_from_bytes(image_bytes):
-    
+    """
+    Preprocesses image bytes to the format the model expects.
+    - Decodes from bytes
+    - Resizes to (224, 224)
+    - Converts to a float32 array
+    - Rescales pixels from [0, 255] to [0, 1]
+    - Adds a batch dimension
+    """
     img = Image.open(BytesIO(image_bytes)).convert("RGB")
     img = img.resize(IMAGE_SIZE)
     x = img_to_array(img)
+    x = x / 255.0  # Rescale to [0, 1] as done in training
     x = np.expand_dims(x, axis=0)
-    x = preprocess_input(x)
     return x
 
 
