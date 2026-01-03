@@ -5,6 +5,8 @@ from pathlib import Path
 import tensorflow as tf
 from tensorflow.keras import layers, models
 
+from tensorflow.keras.applications.efficientnet import preprocess_input
+
 model = None
 
 def get_model():
@@ -13,7 +15,8 @@ def get_model():
     if model is None:
         model_path = Path(settings.BASE_DIR) / "ml_models" / "my_model.h5"
 
-        model = tf.keras.models.load_model(str(model_path))
+        custom_objects = {"preprocess_input": preprocess_input}
+        model = tf.keras.models.load_model(str(model_path), custom_objects=custom_objects)
         
         print("✅ Skin disease model reconstructed and weights loaded successfully")
     return model
