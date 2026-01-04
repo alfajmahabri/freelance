@@ -18,6 +18,7 @@ CLASS_FULL_FORMS = {
 import numpy as np
 from io import BytesIO
 from PIL import Image
+print("🔥 ml_utils loaded from:", __file__)
 
 try:
     from tensorflow.keras.preprocessing.image import load_img, img_to_array
