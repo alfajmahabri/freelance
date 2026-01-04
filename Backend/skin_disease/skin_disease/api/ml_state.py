@@ -10,7 +10,7 @@ _model = None
 def get_model():
     global _model
     if _model is None:
-        model_path = Path(settings.BASE_DIR) / ".." / ".." / "BACKUP" / "my_model.h5"
+        model_path = Path(settings.BASE_DIR) / ".." / ".." / ".." / "BACKUP" / "my_model.h5"
 
         # Load the full model directly from the .h5 file.
         # This is the correct approach since the file was saved with model.save()
