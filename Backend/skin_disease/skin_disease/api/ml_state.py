@@ -14,7 +14,7 @@ def get_model():
 
         # Load the full model directly from the .h5 file.
         # This is the correct approach since the file was saved with model.save()
-        model = tf.keras.models.load_model(str(model_path))
+        _model = tf.keras.models.load_model(str(model_path))
         
         print("✅ Skin disease model loaded successfully")
 
