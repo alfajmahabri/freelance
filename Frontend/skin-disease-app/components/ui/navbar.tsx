@@ -6,7 +6,7 @@ import { Home, ShieldCheck, Zap, UserPlus, LogIn } from "lucide-react-native";
 export default function Navbar() {
   return (
     <View style={styles.navContainer}>
-      <Link href="/" asChild>
+      <Link href="/landing" asChild>
         <TouchableOpacity style={styles.navLink}>
           <Home size={18} color="#0f766e" />
           <Text style={styles.navText}>Home</Text>
