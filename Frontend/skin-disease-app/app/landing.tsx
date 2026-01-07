@@ -33,39 +33,40 @@ const isWeb = Platform.OS === "web";
 
 const FEATURES = [
   {
-    icon: <Scan size={32} color="#0f766e" />,
-    title: "AI-Powered Scans",
+    icon: <Sparkles size={32} color="#0f766e" />,
+    title: "AI Powered",
     description:
-      "Get instant insights on skin issues by scanning with your phone's camera.",
+      "Leverage advanced AI to analyze skin conditions quickly and accurately.",
   },
   {
     icon: <Heart size={32} color="#0f766e" />,
-    title: "Find Specialists",
-    description: "Easily locate and connect with dermatologists in your area.",
+    title: "15+ Disease",
+    description:
+      "Capable of identifying over 15 common skin diseases and conditions.",
   },
   {
-    icon: <Sparkles size={32} color="#0f766e" />,
-    title: "Personalized Tips",
+    icon: <ShieldCheck size={32} color="#0f766e" />,
+    title: "90%+ Accuracy",
     description:
-      "Receive daily tips to maintain and improve your skin health.",
-  },
-  {
-    icon: <LineChart size={32} color="#0f766e" />,
-    title: "Progress Tracking",
-    description:
-      "Monitor your skin’s health over time with our tracking tools.",
-  },
-  {
-    icon: <Lock size={32} color="#0f766e" />,
-    title: "Secure & Private",
-    description:
-      "Your data is always encrypted and stored with the highest security standards.",
+      "Benefit from highly accurate diagnoses, with over 90% precision in detection.",
   },
   {
     icon: <Users size={32} color="#0f766e" />,
-    title: "Community Support",
+    title: "Daily Tips",
     description:
-      "Connect with others and share experiences in our community forum.",
+      "Receive personalized daily tips to maintain and improve your skin health.",
+  },
+  {
+    icon: <Lock size={32} color="#0f766e" />,
+    title: "Doctors Info",
+    description:
+      "Access a comprehensive database of qualified dermatologists in your area.",
+  },
+  {
+    icon: <ChevronRight size={32} color="#0f766e" />,
+    title: "Easy to Use",
+    description:
+      "A user-friendly interface designed for effortless navigation and quick results.",
   },
 ];
 
