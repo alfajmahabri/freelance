@@ -9,6 +9,7 @@ import {
   SafeAreaView,
   FlatList,
   Dimensions,
+  ScrollView,
 } from "react-native";
 import {
   LogIn,
