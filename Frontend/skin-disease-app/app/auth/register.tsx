@@ -16,19 +16,7 @@ import { User, Mail, Lock, Calendar, Droplet } from "lucide-react-native";
 
 const isWeb = Platform.OS === "web";
 
-type RegisterProps = {
-  onSwitch?: () => void;
-  onRegister?: (data: {
-    name: string;
-    email: string;
-    pwd: string;
-    age: string;
-    gender: string;
-    skinType: string;
-  }) => void;
-};
-
-export default function RegisterScreen({ onSwitch, onRegister }: RegisterProps) {
+export default function RegisterScreen() {
   const router = useRouter();
 
   const [name, setName] = useState("");
@@ -42,19 +30,11 @@ export default function RegisterScreen({ onSwitch, onRegister }: RegisterProps) 
     // TODO: send data to Django API
     const data = { name, email, pwd, age, gender, skinType };
     console.log(data);
-    if (onRegister) {
-      onRegister(data);
-      return;
-    }
-    // after successful registration -> fallback to login route
-    router.replace("/auth/login");
+    // after successful registration -> go to home screen
+    router.replace("/(tabs)/home");
   };
 
   const goToLogin = () => {
-    if (onSwitch) {
-      onSwitch();
-      return;
-    }
     router.replace("/auth/login");
   };
 

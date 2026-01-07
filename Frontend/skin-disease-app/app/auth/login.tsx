@@ -14,12 +14,7 @@ import { Mail, Lock, Activity as ActivityIcon } from "lucide-react-native";
 const isWeb = Platform.OS === "web";
 
 
-type LoginProps = {
-  onSwitch?: () => void;
-  onLogin?: (email: string, password: string) => void;
-};
-
-export default function LoginScreen({ onSwitch, onLogin }: LoginProps) {
+export default function LoginScreen() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,19 +22,11 @@ export default function LoginScreen({ onSwitch, onLogin }: LoginProps) {
   const handleLogin = () => {
     // TODO: call Django login API
     console.log("Login:", email, password);
-    if (onLogin) {
-      onLogin(email, password);
-      return;
-    }
-    // after successful login go to home screen when no parent handler
-    router.replace("/");
+    // after successful login go to home screen
+    router.replace("/(tabs)/home");
   };
 
   const goToRegister = () => {
-    if (onSwitch) {
-      onSwitch();
-      return;
-    }
     router.replace("/auth/register");
   };
 
