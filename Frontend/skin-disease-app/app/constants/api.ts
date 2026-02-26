@@ -1,7 +1,7 @@
 // constants/api.ts
 
 // Base URL of your local Django backend
-export const BASE_URL = "http://127.0.0.1:8000";
+export const BASE_URL = "https://freelance-backend-mrtn.onrender.com";
 
 // Django API endpoints
 export const DJANGO_API = {
